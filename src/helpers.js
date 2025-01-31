@@ -1,5 +1,7 @@
 import { json } from "react-router-dom";
 
+export const waait = () => new Promise(res => setTimeout(res, Math.random() * 2000))
+
 // Local storage
 export const fetchData = (key) => {
     return JSON.parse(localStorage.getItem(key));
@@ -18,7 +20,7 @@ export const createBudget = ({name, amount}) => {
   const newItem = {
     id: crypto.randomUUID(),
     name: name,
-    createAt: Date.now(),
+    createdAt: Date.now(),
     amount: +amount,
     color: generateRandomColor()
   }
@@ -38,7 +40,7 @@ export const createExpense = ({name, amount, budgetId}) => {
   const newItem = {
     id: crypto.randomUUID(),
     name: name,
-    createAt: Date.now(),
+    createdAt: Date.now(),
     amount: +amount,
     budgetId: budgetId
   }
@@ -62,6 +64,9 @@ export const calculateSpentByBudget = (budgetId) => {
 }
 
 //formatting
+
+export const formatDateToLocaleString = (epoch) =>
+new Date(epoch).toLocaleDateString();
 
 
 //format currency

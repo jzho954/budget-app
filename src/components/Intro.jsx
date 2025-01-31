@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form } from 'react-router-dom'
 import { UserPlusIcon } from '@heroicons/react/24/solid'
 import illustration from "../assets/illustration.jpg"
 
 
 const Intro = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false) ;
+    const handleSubmit = () => {
+        setIsSubmitting(true);
+    }
+
+
+
+
   return (
     <div className='intro'>
         <div>
@@ -14,7 +22,9 @@ const Intro = () => {
             <p>
                 Personal Budgeting 
             </p>
-            <Form method='post'>
+            <Form method='post'
+            onSubmit={handleSubmit}
+            >
                 <input type="text" 
                 name='userName' 
                 required
@@ -22,7 +32,11 @@ const Intro = () => {
                 aria-label='Your Name' 
                 autoComplete='given-name' />
                 <input type='hidden' name='_action' value="newUser"/>
-                <button type='submit' className='btn btn--dark'>
+
+                <button type='submit' 
+                className='btn btn--dark'
+                disabled = {isSubmitting}
+                >
                 <span>Create Account</span>
                 <UserPlusIcon width={20}/>
 
