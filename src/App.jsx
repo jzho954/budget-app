@@ -13,7 +13,7 @@ import Error from "./Pages/Error";
 // Library
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ExpensesPage, { expensesLoader } from "./Pages/ExpensesPage";
+import ExpensesPage, { expensesAction, expensesLoader } from "./Pages/ExpensesPage";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +33,7 @@ const router = createBrowserRouter([
         path: "expenses",
         element: <ExpensesPage />,
         loader: expensesLoader,
+        action: expensesAction
         
       },
       {
