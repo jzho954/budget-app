@@ -82,3 +82,4 @@ export const AddExpenseForm = ({ budgets }) => {
     </div>
   );
 };
+export default AddExpenseForm
