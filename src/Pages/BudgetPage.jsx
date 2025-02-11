@@ -35,7 +35,7 @@ export async function budgetLoader({ params }) {
 
 // action
 export async function budgetAction({ request }) {
-  const data = await request.formData();
+  const data = await request.formData(); 
   const { _action, ...values } = Object.fromEntries(data);
 
   if (_action === "createExpense") {
@@ -78,7 +78,7 @@ const BudgetPage = () => {
         <span className="accent">{budget.name}</span> Overview
       </h1>
       <div className="flex-lg">
-        <BudgetItem budget={budget} />
+        <BudgetItem budget={budget} showDelete ={true} />
         <AddExpenseForm budgets={[budget]} />
       </div>
       {expenses && expenses.length > 0 && (
